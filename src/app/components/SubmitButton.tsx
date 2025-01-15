@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { useFormStatus } from "react-dom";
 import { Github, Loader2 } from "lucide-react";
-import { FaGoogle } from "react-icons/fa";
+import { FaGoogle, FaLinkedin } from "react-icons/fa";
 
 interface iAppProps {
   text: string;
@@ -47,6 +47,24 @@ export function GitHubAuthButton() {
           <Button variant="outline" className="w-full">
             <Github />
             Sign in with GitHub
+          </Button>
+        )}
+      </>
+    );
+  }
+
+  export function LinkedInAuthButton() {
+    const { pending } = useFormStatus();
+    return (
+      <>
+        {pending ? (
+          <Button variant="outline" className="w-full" disabled>
+            <Loader2 className="size-4 mr-2 animate-spin" /> Please wait
+          </Button>
+        ) : (
+          <Button variant="outline" className="w-full">
+            <FaLinkedin />
+            Sign in with LinkedIn
           </Button>
         )}
       </>
