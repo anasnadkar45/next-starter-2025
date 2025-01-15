@@ -10,3 +10,10 @@ export async function requireUser() {
 
   return session;
 }
+
+export async function getUserData(){
+  const session = await auth();
+  return {
+    userId:session?.user?.id
+  }
+}
